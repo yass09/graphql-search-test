@@ -33,6 +33,7 @@ const MessageImg = styled.img`
 const MessageText = styled.p`
   font-size: 2em;
   margin: 1em;
+  text-align: center
 `;
 
 const errorMessage = 'Oops...Something went wrong. Sorry';

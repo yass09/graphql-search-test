@@ -8,7 +8,7 @@ const StyledInput = styled.input.attrs(props =>({
 }))`
   border: none;
   border-bottom: black 2px solid;
-  width: 10em;
+  width: 100%;
   padding: 0.5em;
   font-size: 1.5em;
   background-image: url(${search});

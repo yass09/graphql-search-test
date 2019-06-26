@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import SearchBar from '../SearchBar'
+
 const HeaderContainer = styled.header`
   width: 100%;
-  height: 15vh;
+  ${'' /* min-height: 15vh; */}
   padding: 2em;  
   display: flex;
   align-items: center;
-  border-bottom: lightgrey 0.1em solid
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: lightgrey 0.1em solid;
 `;
 
 const Title = styled.h1`
@@ -15,12 +19,13 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-const Header = () => {
+const Header = ({ artistSearchValue, onArtistSearch}) => {
   return (
     <HeaderContainer>
       <Title>
         MusicPedia
       </Title>
+      <SearchBar artistSearchValue={artistSearchValue} onArtistSearch={onArtistSearch}/>
     </HeaderContainer>
   )
 };

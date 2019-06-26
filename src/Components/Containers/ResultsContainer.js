@@ -13,10 +13,9 @@ const ResultsContainerDiv = styled.div`
   align-items: center;
 `
 
-const ResultsContainer = () => {
-  const queryString = "";
+const ResultsContainer = ({artistSearchValue, isEmptySearch}) => {
 
-  const resultsQuery = gql`
+  const artistSearchQuery = gql`
     query artists ($query: String!){
       search {
         artists(query: $query) {
@@ -31,13 +30,14 @@ const ResultsContainer = () => {
   return (
     <ResultsContainerDiv>
       <Query
-      query={resultsQuery}
-      variables={{query: queryString}}
+      query={artistSearchQuery}
+      variables={{query: artistSearchValue}}
       >
-        {({ data, loading, error, variables }) => {
+        {({ data, loading, error }) => {
+          console.log(loading, data)
           if (loading) return <InfoMessage type={'loading'}/>
           if (!data) return <InfoMessage type={'search'}/>
-          if (data.search.artists.nodes.length === 0) return <InfoMessage hasNoResults={data.search.artists.nodes.length === 0} type={'search'}/>
+          if (data && data.search.artists.nodes.length === 0) return <InfoMessage hasNoResults={data.search.artists.nodes.length === 0} type={'search'}/>
           if (error) return <InfoMessage type={'error'} />
 
           return <ResultsList results={data.search.artists.nodes}/>

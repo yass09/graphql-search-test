@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import BackButton from './BackButton';
-import FavouritesList from '../Containers/FavouritesList';
+import FavouritesList from './FavouritesList';
+import { favourites } from '../../Helpers/favourites';
+
 
 const SideBarContainer = styled.nav`
   height 100%;
@@ -20,11 +23,13 @@ const SideBarContainer = styled.nav`
   }
 `;
 
-const Sidebar = () => (
-  <SideBarContainer>
-    <BackButton to={'/'}/>
-    <FavouritesList/>
-  </SideBarContainer>
-);
+const Sidebar = () => {
+  return (
+    <SideBarContainer>
+      <BackButton to={'/'}/>
+      <FavouritesList favourites={favourites}/>
+    </SideBarContainer>
+  );
+};
 
 export default Sidebar;

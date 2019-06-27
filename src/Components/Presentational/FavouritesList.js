@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Item from '../Presentational/Item';
+import Item from './Item';
 
 const FavouritesListAside = styled.aside`
   width:100%;
@@ -62,38 +62,12 @@ const FavouritesUL = styled.ul`
     }
 `;
 
-const favourites = [
-  {
-    name: 'rhianna',
-    id: 'abjojeojehriurere'
-  },
-  {
-    name: 'beyonce',
-    id: 'hfiehsayqwwr'
-  },
-  {
-    name: 'rhianna',
-    id: 'abjojeojehriurere'
-  },
-  {
-    name: 'beyonce',
-    id: 'hfiehsayqwwr'
-  },
-  {
-    name: 'rhianna',
-    id: 'abjojeojehriurere'
-  },
-  {
-    name: 'beyonce',
-    id: 'hfiehsayqwwr'
-  },
-]
 
-const FavouritesList = () => (
+const FavouritesList = ({favourites}) => (
   <FavouritesListAside>
     <FavouritesHeader>Favourite Artists</FavouritesHeader>
     <FavouritesUL>
-      {favourites.map((favourite) => (
+      {favourites && favourites.map((favourite) => (
         <Item name={favourite.name} key={favourite.id}/>
       ))}
     </FavouritesUL>

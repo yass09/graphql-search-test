@@ -1,2 +1,2 @@
 export const HOMESEARCH = '/';
-export const FAVOURITES = '/favourites';
+export const ARTISTDETAILS = '/artist/:name';

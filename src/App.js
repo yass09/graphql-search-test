@@ -4,10 +4,11 @@ import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
-import ResultsContainer from './Components/Containers/ResultsContainer';
+import ArtistSearchContainer from './Components/Containers/ArtistSearchContainer';
 import Header from './Components/Presentational/Header';
 import Sidebar from './Components/Presentational/Sidebar';
-import Albums from './Components/Views/Albums';
+import ArtistDetailsContainer from './Components/Containers/ArtistDetailsContainer';
+import NotFound from './Views/NotFound';
 import * as routes from './Constants/routes';
 
 const cache = new InMemoryCache();
@@ -35,7 +36,6 @@ const ContentWrapper = styled.main`
 
   @media(max-width: 375px){
     flex-direction: column;
-    height: 80%;
   }
 `;
 
@@ -47,8 +47,9 @@ const App = () => (
           <ContentWrapper>
             <Sidebar/>
             <Switch>
-              <Route path={routes.HOMESEARCH} exact component={ResultsContainer}/>
-              <Route path={routes.FAVOURITES} component={Albums}/>
+              <Route path={routes.HOMESEARCH} exact component={ArtistSearchContainer}/>
+              <Route path={routes.ARTISTDETAILS} component={ArtistDetailsContainer}/>
+              <Route component={NotFound} />
             </Switch>              
           </ContentWrapper>
       </BodyWrapper>

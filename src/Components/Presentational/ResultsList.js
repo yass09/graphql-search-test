@@ -13,6 +13,7 @@ const List = styled.ul`
 
   @media(max-width: 375px) {
     padding: 0 1em
+    height: 85%;
   }
 `
 const ResultsList = ({results}) => (

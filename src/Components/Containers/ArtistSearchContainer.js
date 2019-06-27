@@ -1,23 +1,13 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import styled from 'styled-components';
 
 import ResultsList from '../Presentational/ResultsList';
 import InfoMessage from '../Presentational/InfoMessage'; 
 import SearchBar from '../Presentational/SearchBar';
+import Main from '../Presentational/Main';
 
-
-const ResultsContainerDiv = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
-
-class ResultsContainer extends React.Component {
+class ArtistSearchContainer extends React.Component {
   state = {
     artistSearchValue: ''
   };
@@ -43,7 +33,7 @@ class ResultsContainer extends React.Component {
     const { artistSearchValue } = this.state;
    
     return (
-      <ResultsContainerDiv>
+      <Main flexDirection={'column'}>
         <SearchBar artistSearchValue={artistSearchValue} onArtistSearch={this.onArtistSearch} />
         <Query
         query={this.artistSearchQuery}
@@ -58,9 +48,9 @@ class ResultsContainer extends React.Component {
             return <ResultsList results={data.search.artists.nodes}/>
           }}
         </Query>
-      </ResultsContainerDiv>
+      </Main>
     )
   }
 }
 
-export default ResultsContainer;
+export default ArtistSearchContainer;

@@ -1,5 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+
+import { NavigationLink } from './NavigationLink';
 
 const ItemContainer = styled.li`
   width: 100%;
@@ -8,10 +10,7 @@ const ItemContainer = styled.li`
 
 const Item = ({name}) => (
   <ItemContainer>
-    {name}
-    {/* {(!name && title) &&
-      
-    } */}
+    <NavigationLink to={`/artist/${name}`}>{name}</NavigationLink>
   </ItemContainer>
 )
 

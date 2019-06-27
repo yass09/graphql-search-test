@@ -85,8 +85,6 @@ const AddFavouriteContainer = styled.div`
 `;
 
 const AddFavouriteButton = styled.button`
-  width: 2em;
-  height: 2em;
   margin: 1em;
   background-color: none;
   border: none;
@@ -102,12 +100,18 @@ const AddFavouriteButton = styled.button`
 
 const ArtistDetailsPage = ({artistData, onClick, isFavourite}) => {
   const { 
+    id,
     name,
     country,
     fanArt = [],
     spotify,
     releaseGroups : { edges: albums = [] } = {}
   } = artistData;
+
+  const artist = {
+    id,
+    name
+  }
 
   const countryOfOrigin = country? country : 'N/A';
   const avatarUrl = () => {
@@ -140,7 +144,7 @@ const ArtistDetailsPage = ({artistData, onClick, isFavourite}) => {
         </ArtistInfoContainer> 
           <AddFavouriteContainer>
             <label> Add to Favourites</label>
-            <AddFavouriteButton onClick={onClick}>
+            <AddFavouriteButton onClick={() => onClick(artist)}>
               <img src={isFavourite ? yellowFavouriteIcon : blackFavouriteIcon}  alt=""/>
             </AddFavouriteButton>
           </AddFavouriteContainer>

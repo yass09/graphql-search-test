@@ -1,0 +1,1 @@
+export const favourites = JSON.parse(localStorage.getItem('Favourites')) || []; 

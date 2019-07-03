@@ -15,7 +15,7 @@ const SideBarContainer = styled.nav`
   align-items: center;
   justify-content: center;
 
-  @media(max-width: 375px) {
+  @media(max-width: 420px) {
     width: 100%;
     height: 4em;
     padding: 1em;

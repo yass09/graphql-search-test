@@ -116,7 +116,8 @@ const ArtistDetailsPage = ({artistData, onClick, isFavourite}) => {
   const countryOfOrigin = country? country : 'N/A';
   const avatarUrl = () => {
     if (spotify) return spotify.images[1].url;
-    return fanArt.thumbnails[0].url || '';
+    if (fanArt.length > 0) return fanArt.thumbnails[0].url
+    return null;
   }
 
   const genres = spotify && spotify.genres
